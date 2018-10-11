@@ -6,4 +6,5 @@ Możliwe funkcje:
 - Obliczenie promili alkoholu we krwi po czasie 8h od zakończenia picia (być może możliwość wyboru czasu przez użytkownika),
 - Dodawanie spożytego alkoholu na bieżąco,
 - Lista najczęściej spotykanych alkoholi oraz ich procentowość,
--
+- Możliwość porównania wyników ze znajomymi,
+- Odnośnik do mapy z mopy z najbliższymi monopolowymi,
