@@ -1,4 +1,4 @@
-# Programowanie Aplikacyjne - Adrian Tatuśko 243269 
+# Programowanie Aplikacyjne
 
 Alkomat, który po w wprowadzeniu odpowiednich danych, np. masy ciała, wzrostu, obliczy i wyświetli promile alkoholu we krwi po jakimś czasie.
 
@@ -8,3 +8,5 @@ Możliwe funkcje:
 - Lista najczęściej spotykanych alkoholi oraz ich procentowość,
 - Możliwość porównania wyników ze znajomymi,
 - Odnośnik do mapy z mopy z najbliższymi monopolowymi,
+- Wykres alkoholu we krwi w czasie,
+- Historia użycia zapisywana do bazy danych,
