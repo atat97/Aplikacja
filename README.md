@@ -7,6 +7,6 @@ Możliwe funkcje:
 - Dodawanie spożytego alkoholu na bieżąco,
 - Lista najczęściej spotykanych alkoholi oraz ich procentowość,
 - Możliwość porównania wyników ze znajomymi,
-- Odnośnik do mapy z mopy z najbliższymi monopolowymi,
+- Odnośnik do mapy najbliższymi monopolowymi,
 - Wykres alkoholu we krwi w czasie,
 - Historia użycia zapisywana do bazy danych,
