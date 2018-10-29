@@ -5,7 +5,7 @@
 #define DANE_MENU_DODAJ 1
 #define GRAMY_PIWO_500 2
 #define DANE_MENU_ZAMKNIJ 3
-#define WYCZYSC 4
+#define WYCZYSC_B 4
 #define GRAMY_WODKA 5
 #define PROMILE_PIWO 6
 #define PROMILE_WHISKEY 7
@@ -24,7 +24,7 @@ void WczytajObrazy();
 char gramy_alk[20] = {0};
 int gramy_alk_int = 0;
 
-HWND hGrAlk,hLogo,hTekst,hCzas;
+HWND hGrAlk,hLogo,hTekst,hCzas,hWaga,hWynik;
 HMENU hMenu;
 HBITMAP hLogoObr,hGraf;
 
@@ -87,20 +87,24 @@ LRESULT CALLBACK ProceduraOkna(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
             sprintf(gramy_alk,"%d[g]",gramy_alk_int);
             SetWindowText(hGrAlk,gramy_alk);
             break;
-            /*
-        case OBLICZ:
-            char godziny[6],promile_po_czasie;
-            int godziny_int = (int)godziny;
-
-            GetWindowText(hCzas,godziny,6);
-
-
-            break;  */
-        case WYCZYSC:
+        case WYCZYSC_B:
             gramy_alk_int = 0;
             sprintf(gramy_alk,"%d[g]",gramy_alk_int);
             SetWindowText(hGrAlk,gramy_alk);
             break;
+        case OBLICZ:
+            char wynik_ch[20];
+            int waga,godziny;
+            double wynik = gramy_alk_int/(0.6*waga);
+            waga = GetDlgItemInt(hWnd,hWaga,NULL,NULL);
+            godziny = GetDlgItemInt(hWnd,hCzas,NULL,NULL);
+
+            sprintf(wynik_ch,"Po czasie %dh, we krwi pozostanie %f promili",godziny,wynik);
+
+            SetWindowText(hWynik,wynik_ch);
+
+            break;
+
         }
         break;
     case WM_CREATE: //Tutaj tworze elementy okienka
@@ -160,12 +164,14 @@ void DodajKontrole(HWND hWnd)
     CreateWindowW(L"Static",L"Spozytego alkoholu:",WS_VISIBLE |WS_CHILD|SS_CENTER,20,260,140,20,hWnd,NULL,NULL,NULL);
     hGrAlk = CreateWindowW(L"Static",L"0[g]",WS_VISIBLE |WS_CHILD|SS_CENTER|WS_BORDER,20,286,140,40,hWnd,NULL,NULL,NULL);
 
-    CreateWindowW(L"Button",L"WYCZYSC",WS_VISIBLE|WS_CHILD|WS_BORDER,20,332,140,40,hWnd,(HMENU)WYCZYSC,NULL,NULL);
+    CreateWindowW(L"Button",L"WYCZYSC",WS_VISIBLE|WS_CHILD|WS_BORDER,20,332,140,40,hWnd,(HMENU)WYCZYSC_B,NULL,NULL);
 
-    CreateWindowW(L"Static",L"Ile godzin minelo od picia:",WS_VISIBLE|WS_CHILD,180,20,140,40,hWnd,NULL,NULL,NULL);
+    CreateWindowW(L"Static",L"Ile godzin minelo od picia:",WS_VISIBLE|WS_CHILD|ES_NUMBER,180,20,140,40,hWnd,NULL,NULL,NULL);
+    CreateWindowW(L"Static",L"Twoja waga w kg:",WS_VISIBLE|WS_CHILD|ES_NUMBER,180,70,140,40,hWnd,NULL,NULL,NULL);
     hCzas = CreateWindowW(L"Edit",L"",WS_VISIBLE|WS_CHILD,340,20,80,40,hWnd,NULL,NULL,NULL);
-    CreateWindowW(L"Button",L"OBLICZ",WS_VISIBLE|WS_CHILD|WS_BORDER,450,20,80,40,hWnd,(HMENU)OBLICZ,NULL,NULL);
-    CreateWindowW(L"Edit",L"",WS_VISIBLE | WS_CHILD | WS_BORDER,180,66,350,40,hWnd,NULL,NULL,NULL);
+    hWaga = CreateWindowW(L"Edit",L"",WS_VISIBLE|WS_CHILD,340,70,80,40,hWnd,NULL,NULL,NULL);
+    CreateWindowW(L"Button",L"OBLICZ",WS_VISIBLE|WS_CHILD|WS_BORDER,450,45,80,40,hWnd,(HMENU)OBLICZ,NULL,NULL);
+    hWynik = CreateWindowW(L"Static",L"",WS_VISIBLE | WS_CHILD | WS_BORDER,180,120,350,40,hWnd,NULL,NULL,NULL);
     /*
     hLogo = CreateWindowW(L"Static",NULL,WS_VISIBLE|WS_CHILD|SS_BITMAP, 400,100,100,100,hWnd,NULL,NULL,NULL);
     SendMessageW(hLogo,STM_SETIMAGE,IMAGE_BITMAP,(LPARAM)hLogoObr);
