@@ -2,8 +2,9 @@
 1539461726 source:c:\users\win\moje\cdb_projekty\aplikacja\main.cpp
 	<windows.h>
 
-1540403998 source:c:\users\adrian\desktop\aplikacja\main.cpp
+1540839773 source:c:\users\adrian\desktop\aplikacja\main.cpp
 	<windows.h>
 	<stdlib.h>
 	<stdio.h>
+	<cstdlib>
 
