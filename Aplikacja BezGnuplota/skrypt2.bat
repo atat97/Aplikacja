@@ -1,0 +1,1 @@
+PNGtoBMP\png2bmp -i graf.png
