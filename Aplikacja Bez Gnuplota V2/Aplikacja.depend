@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1539461726 source:c:\users\win\moje\cdb_projekty\aplikacja\main.cpp
+	<windows.h>
+
+1541727869 source:c:\users\adrian\desktop\aplikacja\main.cpp
+	<windows.h>
+	<stdlib.h>
+	<stdio.h>
+	<cstdlib>
+	<commctrl.h>
+	<iostream>
+	<fstream>
+
+1541618023 c:\users\adrian\desktop\aplikacja\gnuplot.h
+	<iostream>
+	<string>
+
